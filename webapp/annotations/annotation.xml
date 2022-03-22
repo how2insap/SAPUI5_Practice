@@ -1,0 +1,273 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata">
+        <edmx:Include Namespace="GWSAMPLE_BASIC"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="namespace">
+      
+            <Annotations Target="GWSAMPLE_BASIC.BusinessPartner">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartnerID"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartnerRole"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="REPLACE_WITH_COLUMN_LABEL"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToContacts/@Communication.Contact"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+
+                    </Collection>
+                </Annotation>
+                
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>BusinessPartnerID</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+            <Annotation Term="UI.DataPoint" Qualifier="BPDetails">  
+                <Record Type="UI.DataPointType">
+                    <PropertyValue Property="Value" Path="BusinessPartnerRole"/>
+                </Record>                           
+            </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#BPDetails"/>
+                        </Record> 
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup1"/>
+                        </Record>                         
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="BP TypeName Parameter"/>
+                        <PropertyValue Property="TypeNamePlural" String="TypeName Plurals"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="BusinessPartnerID"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeImageUrl" String="REPLACE_WITH_TYPEIMAGE_PATH"/>
+                    </Record>
+                </Annotation>
+
+                <!-- Field Group - Group Insode Facet(Tabstrip) and can also be inserted in HeaderFacet -->
+                <Annotation Term="UI.FieldGroup" Qualifier="fieldGroup1">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BusinessPartnerID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BusinessPartnerRole"/>
+                                </Record> 
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CompanyName"/>
+                                </Record>                                                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="fieldGroup2">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="EmailAddress"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FaxNumber"/>
+                                </Record> 
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CurrencyCode"/>
+                                </Record>                                                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>          
+                      
+                
+               <!-- Facet - Tab Strips  -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 1"/>
+                            <PropertyValue Property="ID" String="Label1"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup1"/>
+                        </Record>
+                       <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 2"/>
+                            <PropertyValue Property="ID" String="Label2"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup2"/>
+                        </Record>       
+                       <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 3"/>
+                            <PropertyValue Property="ID" String="Label3"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToSalesOrders/@UI.LineItem"/>
+                        </Record>                                              
+                    </Collection>
+                </Annotation>
+              
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerID"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderID"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+            <Annotation Term="UI.DataPoint" Qualifier="SOID">  
+                <Record Type="UI.DataPointType">
+                    <PropertyValue Property="Value" Path="SalesOrderID"/>
+                </Record>                           
+            </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#SOID"/>
+                        </Record> 
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup4"/>
+                        </Record>                         
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="SO Detail"/>
+                        <PropertyValue Property="TypeNamePlural" String="SO Details"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrderID"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeImageUrl" String="REPLACE_WITH_TYPEIMAGE_PATH"/>
+                    </Record>
+                </Annotation>
+
+                <!-- Field Group - Group Insode Facet(Tabstrip) and can also be inserted in HeaderFacet -->
+                <Annotation Term="UI.FieldGroup" Qualifier="fieldGroup4">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DeliveryStatus"/>
+                                </Record> 
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LifecycleStatus"/>
+                                </Record>                                                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="fieldGroup5">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToBusinessPartner"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="GrossAmount"/>
+                                </Record> 
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerName"/>
+                                </Record>                                                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>          
+                      
+                
+               <!-- Facet - Tab Strips  -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 4"/>
+                            <PropertyValue Property="ID" String="Label4"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup4"/>
+                        </Record>
+                       <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 5"/>
+                            <PropertyValue Property="ID" String="Label5"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fieldGroup5"/>
+                        </Record>       
+                       <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Field Group 6"/>
+                            <PropertyValue Property="ID" String="Label6"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToLineItems/@UI.LineItem"/>
+                        </Record>                                              
+                    </Collection>
+                </Annotation>                      
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrderLineItem">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ItemPosition"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>      
+            </Annotations>
+            <Annotations Target="GWSAMPLE_BASIC.Contact">
+                <Annotation Term="Communication.Contact">
+                    <Record Type="Communication.ContactType">
+                        <PropertyValue Property="fn" Path="FirstName"/>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="Communication.PhoneNumberType">
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/cell"/>
+                                    <PropertyValue Property="uri" Path="PhoneNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="Communication.EmailAddressType">
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                    <PropertyValue Property="address" Path="EmailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+                  
+       </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

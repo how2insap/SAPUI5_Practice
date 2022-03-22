@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1647768307538_5_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "namespace.mfebptoso",
+    "packageName": "",
+    "content": {
+        "property": "useExportToExcel",
+        "newValue": true
+    },
+    "selector": {
+        "id": "namespace.mfebptoso::sap.suite.ui.generic.template.ListReport.view.ListReport::BusinessPartnerSet--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/namespace.mfebptoso/changes/",
+    "projectId": "namespace.mfebptoso",
+    "creation": 1647768307538,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.84.14",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "1.0.0",
+        "to": "1.0.0",
+        "creation": "1.0.0"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}
